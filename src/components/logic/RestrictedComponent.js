@@ -1,7 +1,8 @@
-import Auth from "services/auth";
+import { AuthContext } from "contexts/AuthContext";
+import { useContext } from "react";
 
 const RestrictedComponent = ({ roles, children, message = '' }) => {
-    const user = Auth.getLoggedInUser();
+    const { user } = useContext(AuthContext);
 
     return (!user || !roles.includes(user.role) ? message : children);
 }

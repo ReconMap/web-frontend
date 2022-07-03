@@ -38,7 +38,7 @@ const DashboardPanels = () => {
     const [dashboardConfig, setDashboardConfig] = useState(user?.preferences?.['web-client.widgets'] || InitialiseWidgetConfig());
     const [visibleWidgets, setVisibleWidgets] = useState(filterWidgets(user));
 
-    const onWidgetChange = (ev) => {
+    const onWidgetChange = ev => {
         setDashboardConfig(prev => ({ ...prev, [ev.target.name]: { ...prev[ev.target.name], visible: ev.target.checked } }));
     }
 
@@ -60,7 +60,6 @@ const DashboardPanels = () => {
                 actionCompletedToast("Your preferences have been saved.");
             })
             .catch(err => console.error(err));
-
     }
 
     if (dashboardConfig === null) return <Loading />

@@ -4,6 +4,7 @@ import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import KeyCloakService from 'services/keycloak';
 import ReconmapTheme from 'theme/index';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -15,11 +16,16 @@ const { ToastContainer } = createStandaloneToast();
 
 const rootContainer = document.getElementById('root');
 const appRoot = ReactDOM.createRoot(rootContainer);
-appRoot.render(<React.StrictMode>
-    <ChakraProvider theme={ReconmapTheme}>
-        <App />
-        <ToastContainer />
-    </ChakraProvider>
-</React.StrictMode>);
+
+const renderApp = () => {
+    appRoot.render(<React.StrictMode>
+        <ChakraProvider theme={ReconmapTheme}>
+            <App />
+            <ToastContainer />
+        </ChakraProvider>
+    </React.StrictMode>);
+}
+
+KeyCloakService.CallLogin(renderApp);
 
 serviceWorker.unregister();

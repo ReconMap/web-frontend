@@ -1,5 +1,3 @@
-import AuthLayout from 'components/auth/AuthLayout';
-import AuthRoutes from 'components/auth/Routes';
 import Compose from 'components/Compose';
 import NotificationsRoutes from 'components/notifications/Routes';
 import SettingsRoutes from 'components/settings/Routes';
@@ -8,7 +6,6 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Auth from 'services/auth';
 import setThemeColors from 'utilities/setThemeColors';
-import AuthRequired from './components/auth/AuthRequired';
 import ClientsRoutes from './components/clients/Routes';
 import CommandsRoutes from './components/commands/Routes';
 import DocumentsRoutes from './components/documents/Routes';
@@ -46,14 +43,10 @@ const App = () => {
         <Compose components={[AuthProvider, WebsocketProvider]}>
             <ThemeContext.Provider value={{ theme, setTheme }}>
                 <Routes>
-                    <Route element={<AuthLayout />}>
-                        {AuthRoutes.map((value, index) => React.cloneElement(value, { key: `auth_route_${index}` }))}
-                    </Route>
-                    <Route element={<AuthRequired><DashboardLayout /></AuthRequired>}>
+                    <Route element={<DashboardLayout />}>
                         <Route path="/" element={<DashboardPanels />} index />
                         {
                             [
-                                ...AuthRoutes,
                                 ...ClientsRoutes,
                                 ...CommandsRoutes,
                                 ...DocumentsRoutes,
