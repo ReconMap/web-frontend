@@ -1,14 +1,9 @@
+import Configuration from "Configuration";
 import Keycloak from "keycloak-js";
 
-const keycloakConfig = {
-    url: 'http://localhost:8080',
-    realm: 'reconmap',
-    clientId: 'web-client'
-};
+const keycloakInstance = new Keycloak(Configuration.getKeycloakConfig());
 
-const keycloakInstance = new Keycloak(keycloakConfig);
-
-const Login = (onAuthenticatedCallback: Function) => {
+const Login = (onLoginSuccess: Function, onLoginFailure: Function) => {
 
     keycloakInstance
         .init({
@@ -16,11 +11,14 @@ const Login = (onAuthenticatedCallback: Function) => {
         })
         .then((authenticated) => {
             if (authenticated)
-                onAuthenticatedCallback();
+                onLoginSuccess();
+            else
+                onLoginFailure();
         })
         .catch(err => {
             console.dir(err);
             console.log(`keycloak init exception: ${err}`);
+            onLoginFailure(err.error);
         });
 };
 
