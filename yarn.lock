@@ -1024,7 +1024,7 @@ __metadata:
     javascript-time-ago: "npm:^2.5.11"
     jsdom: "npm:^25.0.1"
     keycloak-js: "npm:^26.0.7"
-    npm-check-updates: "npm:^17.1.11"
+    npm-check-updates: "npm:^17.1.14"
     path-browserify: "npm:^1.0.1"
     prettier: "npm:^3.4.2"
     react: "npm:^19.0.0"
@@ -6235,13 +6235,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-check-updates@npm:^17.1.11":
-  version: 17.1.11
-  resolution: "npm-check-updates@npm:17.1.11"
+"npm-check-updates@npm:^17.1.14":
+  version: 17.1.14
+  resolution: "npm-check-updates@npm:17.1.14"
   bin:
     ncu: build/cli.js
     npm-check-updates: build/cli.js
-  checksum: 10/89312b60aecfa4ad328b7a6c024b133722d1d7e7d1566be8867a61db3adb0cc529897f78076ed8655f3521bfae7be9cb2978a005c4577c2458b62baa282a29fa
+  checksum: 10/11520c912d45012beb6ede2c64ecc57e04145852a10db20632a0c61fd26463f7134d5888c0f31f8cb1756469e50a3eeec01d03e1fd3b91682a43556bdf42d12b
   languageName: node
   linkType: hard
 
@@ -7357,7 +7357,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    npm-check-updates: "npm:^17.1.11"
+    npm-check-updates: "npm:^17.1.14"
   languageName: unknown
   linkType: soft
 
